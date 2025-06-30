@@ -11,7 +11,7 @@ export const CartPage = () => {
   return (
     <>
       <Typography variant="h2" component="h1" my={3}>Cart summary</Typography>
-      <Grid container p={2} rowSpacing={3} columnSpacing={3}>
+      <Grid container p={2} spacing={3}>
         <Grid size={{ xs: 12, md: 8 }}>
           {renderCartEmpty && <Typography variant="h3">Cart is empty</Typography>}
           {isLoading && <Typography variant="h3">Cart is loading...</Typography>}

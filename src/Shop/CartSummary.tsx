@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Stack, Typography } from "@mui/material"
+import { Button, Divider, Stack, Typography } from "@mui/material"
 import { priceFormatter } from "../utils/price-formatter";
 import { useCart } from "./api/use-cart";
 import { useNavigate } from "react-router";
@@ -7,12 +7,13 @@ export const CartSummary = () => {
   const { cart } = useCart();
   const navigate = useNavigate();
 
+  // TODO: Abstract to pure function and add tests
   const subtotal = cart?.reduce((sum, item) => sum + (item.amount * item.price), 0) || 0;
   const shipping = cart?.length || 0 > 0 ? 25 : 0;
   const total = subtotal + shipping;
 
   return (
-    <Box>
+    <Stack spacing={1}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Typography variant="h5" color="secondary">
           Subtotal
@@ -38,7 +39,7 @@ export const CartSummary = () => {
           {priceFormatter.format(total)}
         </Typography>
       </Stack>
-      <Stack direction="row" justifyContent="flex-end" mt={6}>
+      <Stack direction="row" justifyContent="flex-end" pt={4}>
         <Button
           onClick={() => navigate('/')}
           variant="outlined"
@@ -46,6 +47,6 @@ export const CartSummary = () => {
           Continue shopping
         </Button>
       </Stack>
-    </Box>
+    </Stack>
   );
 }

@@ -38,9 +38,14 @@ export const CartItemRow = ({ item }: CartItemProps) => {
   return (
     <Stack>
       <Typography variant="h4">{item.name}</Typography>
-      <Typography variant="h5" color="secondary">
-        {`${item.amount} @ ${priceFormatter.format(item.price)} EA`}
-      </Typography>
+      <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" width={{ xs: '100%', md: '80%' }}>
+        <Typography variant="h5" color="secondary">
+          {`${item.amount} @ ${priceFormatter.format(item.price)} EA`}
+        </Typography>
+        <Typography variant="h5" color="secondary" textAlign="right">
+          {`${priceFormatter.format(item.price * item.amount)}`}
+        </Typography>
+      </Stack>
       <Stack direction="row">
         <Tooltip title="Add 1">
           <IconButton
