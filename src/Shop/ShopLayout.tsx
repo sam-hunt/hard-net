@@ -1,6 +1,7 @@
 import HandymanIcon from "@mui/icons-material/Handyman";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { AppBar, Badge, Container, IconButton, Stack, Toolbar, Tooltip, Typography } from "@mui/material"
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { AppBar, Badge, Box, Container, IconButton, Stack, Toolbar, Tooltip, Typography } from "@mui/material"
 import { Outlet, useNavigate } from "react-router"
 import { useCart } from "./api/use-cart";
 
@@ -19,6 +20,19 @@ export const ShopLayout = () => {
             Hardware Store
           </Typography>
         </Stack>
+        <Box flex={1} />
+        <Tooltip title="Open on Github">
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open on github"
+            sx={{ mr: 2 }}
+            onClick={() => window.open('https://github.com/sam-hunt/hard-net', '_blank')}
+          >
+            <GitHubIcon />
+          </IconButton>
+        </Tooltip>
         <Tooltip title="Cart">
           <IconButton
             size="large"
