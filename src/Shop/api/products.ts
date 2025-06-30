@@ -3,7 +3,8 @@ export interface Product {
   price: number;
 }
 
-export type Cart = (Product & { amount: number })[];
+export type CartItem = Product & { amount: number };
+export type Cart = CartItem[];
 
 export const products: Product[] = [
   {
