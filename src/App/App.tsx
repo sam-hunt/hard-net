@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material';
@@ -16,14 +16,14 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <BrowserRouter>
+        <HashRouter >
           <Routes>
             <Route element={<ShopLayout />}>
               <Route index element={<ShopPage />} />
               <Route path="cart" element={<CartPage />} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter >
       </ThemeProvider>
     </QueryClientProvider>
   )
