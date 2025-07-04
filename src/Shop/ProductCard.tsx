@@ -5,6 +5,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { addToCart } from "./api/api"
 import { priceFormatter } from "../utils/price-formatter"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useSnackbar } from "notistack";
+import { useNavigate } from "react-router";
 
 interface ProductCardProps {
   product: Product;
@@ -12,14 +14,32 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+  const handleSnackbarAction = () => {
+    navigate('/cart');
+    closeSnackbar();
+  }
 
   const mutation = useMutation({
     mutationFn: async () => addToCart(product.name, 1),
     onSuccess: () => {
       // Invalidate and refetch
-      queryClient.invalidateQueries({ queryKey: ['cart'] })
+      queryClient.invalidateQueries({ queryKey: ['cart'] });
+      // Display success snackbar
+      enqueueSnackbar(`${product.name} added to cart!`, {
+        variant: 'success',
+        action: () => (
+          <Button onClick={handleSnackbarAction}>
+            View cart
+          </Button>
+        ),
+      },)
     },
-  })
+  });
+
 
   return (
     <Card>

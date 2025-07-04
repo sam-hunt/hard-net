@@ -16,10 +16,11 @@
 ## TODOs/Time pressure omissions
 - Cart item quantity numeric input
 - Async loading skeletons
-- “Added to cart [View Cart]” Snackbar
 - Decimal pricing
 - Product id surrogate keys
 - Product pagination
 - Vitest tests e.g. cart subtotals
 - Husky precommit hooks for lint/test
 - ESLint type-aware config expansion
+- Error handling
+- Biome
