@@ -1,4 +1,4 @@
-import { IconButton, Stack, Tooltip, Typography } from "@mui/material"
+import { Divider, IconButton, Stack, Tooltip, Typography } from "@mui/material"
 import type { CartItem } from "./api/products"
 import { priceFormatter } from "../utils/price-formatter"
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -46,7 +46,7 @@ export const CartItemRow = ({ item }: CartItemProps) => {
           {`${priceFormatter.format(item.price * item.amount)}`}
         </Typography>
       </Stack>
-      <Stack direction="row">
+      <Stack direction="row" mb={2}>
         <Tooltip title="Add 1">
           <IconButton
             color="success"
@@ -84,6 +84,7 @@ export const CartItemRow = ({ item }: CartItemProps) => {
           </IconButton>
         </Tooltip>
       </Stack>
+      <Divider variant="middle" sx={{ width: { xs: '100%', md: '80%' } }} />
     </Stack>
   );
 }

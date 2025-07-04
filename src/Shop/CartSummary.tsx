@@ -22,7 +22,7 @@ export const CartSummary = () => {
           {priceFormatter.format(subtotal)}
         </Typography>
       </Stack>
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Stack direction="row" alignItems="center" justifyContent="space-between" pb={2}>
         <Typography variant="h5" color="secondary">
           Shipping
         </Typography>
@@ -30,8 +30,8 @@ export const CartSummary = () => {
           {priceFormatter.format(shipping)}
         </Typography>
       </Stack>
-      <Divider />
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Divider variant="middle" />
+      <Stack direction="row" alignItems="center" justifyContent="space-between" pt={1}>
         <Typography variant="h4">
           Total
         </Typography>
